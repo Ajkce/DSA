@@ -46,7 +46,35 @@ class LinkedList {
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
-    return this
+    return this;
+  }
+  printList() {
+    const array = [];
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      array.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return array;
+  }
+  insert(index, value) {
+    if (index >= this.length) {
+      return this.append(value);
+    }
+
+    const newNode = {
+      value: value,
+      next: null,
+    };
+    let counter = 0;
+    let leader = this.head;
+    while (counter !== index - 1) {
+      leader = leader.next;
+      counter++;
+    }
+    const follower = leader.next;
+    leader.next = newNode;
+    newNode.next = follower;
   }
 }
 
@@ -54,5 +82,9 @@ const myLinkedList = new LinkedList(10);
 console.log(myLinkedList.append(20));
 console.log(myLinkedList.append(50));
 console.log(myLinkedList.prepend(5));
-
+console.log(myLinkedList.insert(2, 90));
 console.log(myLinkedList);
+console.log(myLinkedList.insert(2, 500));
+console.log(myLinkedList.insert(3, 25));
+console.log(myLinkedList.insert(90, 900));
+console.log(myLinkedList.printList());
