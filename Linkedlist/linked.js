@@ -76,6 +76,24 @@ class LinkedList {
     leader.next = newNode;
     newNode.next = follower;
   }
+
+  remove(index) {
+    let counter = 0;
+    let leader = this.head;
+    while (counter !== index - 1) {
+      leader = leader.next;
+      counter++;
+    }
+    console.log(leader.value);
+    let follower = this.head;
+    while (counter !== index + 2) {
+      follower = follower.next;
+      counter++;
+    }
+    leader.next = follower;
+    this.length--;
+    return this
+  }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -87,4 +105,8 @@ console.log(myLinkedList);
 console.log(myLinkedList.insert(2, 500));
 console.log(myLinkedList.insert(3, 25));
 console.log(myLinkedList.insert(90, 900));
+console.log(myLinkedList.printList());
+console.log(myLinkedList.remove(2));
+console.log(myLinkedList.printList());
+console.log(myLinkedList.remove(2));
 console.log(myLinkedList.printList());
