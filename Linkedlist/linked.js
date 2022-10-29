@@ -92,7 +92,7 @@ class LinkedList {
     }
     leader.next = follower;
     this.length--;
-    return this
+    return this.printList();
   }
 }
 
@@ -109,4 +109,3 @@ console.log(myLinkedList.printList());
 console.log(myLinkedList.remove(2));
 console.log(myLinkedList.printList());
 console.log(myLinkedList.remove(2));
-console.log(myLinkedList.printList());
