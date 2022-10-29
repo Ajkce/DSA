@@ -19,6 +19,7 @@ class LinkedList {
     this.head = {
       value: value,
       next: null,
+      prev: null,
     };
 
     this.tail = this.head;
@@ -29,8 +30,10 @@ class LinkedList {
     const newNode = {
       value: value,
       next: null,
+      prev: null,
     };
-
+    console.log(this.tail)
+    newNode.prev = this.tail;
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
@@ -41,9 +44,11 @@ class LinkedList {
     const newNode = {
       value: value,
       next: null,
+      prev:null,
     };
 
     newNode.next = this.head;
+    this.head.prev = newNode;
     this.head = newNode;
     this.length++;
     return this;
@@ -65,6 +70,7 @@ class LinkedList {
     const newNode = {
       value: value,
       next: null,
+      prev:null,
     };
     let counter = 0;
     let leader = this.head;
@@ -75,6 +81,8 @@ class LinkedList {
     const follower = leader.next;
     leader.next = newNode;
     newNode.next = follower;
+    newNode.prev = leader;
+    follower.prev = newNode; 
   }
 
   remove(index) {
@@ -96,16 +104,17 @@ class LinkedList {
   }
 }
 
-const myLinkedList = new LinkedList(10);
-console.log(myLinkedList.append(20));
-console.log(myLinkedList.append(50));
-console.log(myLinkedList.prepend(5));
-console.log(myLinkedList.insert(2, 90));
-console.log(myLinkedList);
-console.log(myLinkedList.insert(2, 500));
-console.log(myLinkedList.insert(3, 25));
-console.log(myLinkedList.insert(90, 900));
-console.log(myLinkedList.printList());
-console.log(myLinkedList.remove(2));
-console.log(myLinkedList.printList());
-console.log(myLinkedList.remove(2));
+const myLinkedList = new LinkedList(20);
+const newLinkedList = new LinkedList(10);
+console.log(newLinkedList.append(20));
+console.log(newLinkedList.append(50));
+console.log(newLinkedList.prepend(5));
+// console.log(myLinkedList.insert(2, 90));
+// console.log(myLinkedList);
+// console.log(myLinkedList.insert(2, 500));
+// console.log(myLinkedList.insert(3, 25));
+// console.log(myLinkedList.insert(90, 900));
+// console.log(myLinkedList.printList());
+// console.log(myLinkedList.remove(2));
+console.log(newLinkedList.printList());
+// console.log(myLinkedList.remove(2));
