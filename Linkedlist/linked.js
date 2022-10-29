@@ -102,6 +102,27 @@ class LinkedList {
     this.length--;
     return this.printList();
   }
+
+
+  reverse(){
+   
+    if(!this.head.next){
+        return this.head;
+    }
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+    while(second){
+        const temp = second.next;
+        second.next = first;
+        first = second;
+        second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+
+    return this
+  }
 }
 
 const myLinkedList = new LinkedList(20);
@@ -116,5 +137,7 @@ console.log(newLinkedList.prepend(5));
 // console.log(myLinkedList.insert(90, 900));
 // console.log(myLinkedList.printList());
 // console.log(myLinkedList.remove(2));
+console.log(newLinkedList.printList());
+console.log(newLinkedList.reverse());
 console.log(newLinkedList.printList());
 // console.log(myLinkedList.remove(2));
