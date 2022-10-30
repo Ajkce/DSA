@@ -58,3 +58,32 @@ mystack.pop();
 mystack.pop();
 mystack.pop();
 console.log(mystack);
+
+
+
+class ArrayStack {
+    constructor(){
+       this.stack = []
+
+    }
+    peek(){
+        return this.stack[this.stack.length - 1]
+    }
+    push(value){
+        this.stack.push(value)
+    }
+    pop(){
+        this.stack.pop()
+
+    }
+}
+
+const arrayStack = new ArrayStack()
+arrayStack.push(1);
+arrayStack.push(2);
+console.log(arrayStack)
+console.log(arrayStack.peek())
+arrayStack.pop()
+arrayStack.pop()
+console.log(arrayStack)
+console.log(arrayStack.peek())
