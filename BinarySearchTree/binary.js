@@ -53,6 +53,25 @@ class BinarySearchTree {
     }
     return false;
   }
+
+  delete(value){
+    if (!this.root) {
+        return false;
+      }
+      let currentNode = this.root;
+      while (currentNode) {
+        if (value < currentNode.value) {
+          currentNode = currentNode.left;
+        } else if (value > currentNode.value) {
+          currentNode = currentNode.right;
+        }
+        else if ((value = currentNode.value)) {
+          console.log(currentNode)
+        }
+      }
+      return false;
+    
+  }
 }
 
 const tree = new BinarySearchTree();
