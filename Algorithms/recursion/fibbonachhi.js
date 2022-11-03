@@ -5,15 +5,23 @@
 
 //For example: fibonacciRecursive(6) should return 8
 
-function fibonacciIterative(n){
-    //code here;
+function fibonacciIterative(n) {
+  //code here;
+  let arr = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    arr.push(arr[i - 2] + arr[i - 2]);
   }
-  fibonacciIterative(3);
+
+  return arr[n];
+}
+console.log(fibonacciIterative(3));
+
+function fibonacciRecursive(n) {
   
-  function fibonacciRecursive(n) {
-    if(n < 2){
-        return n
-    }
-    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2)  }
-  
-  console.log(fibonacciRecursive(9))
+    if (n < 2) {
+    return n;
+  }
+  return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+}
+
+fibonacciRecursive(9); //the time complexity of this recursive function is 0(2^n)
