@@ -59,14 +59,17 @@ class BinarySearchTree {
         return false;
       }
       let currentNode = this.root;
+      let parentNode = null;
       while (currentNode) {
         if (value < currentNode.value) {
+            parentNode = currentNode
           currentNode = currentNode.left;
         } else if (value > currentNode.value) {
+            parentNode = currentNode
           currentNode = currentNode.right;
         }
-        else if ((value = currentNode.value)) {
-          console.log(currentNode)
+        else if ((value === currentNode.value)) {
+           
         }
       }
       return false;
