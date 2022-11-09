@@ -24,4 +24,4 @@ function fibonacciRecursive(n) {
   return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
 }
 
-fibonacciRecursive(9); //the time complexity of this recursive function is 0(2^n)
+console.log(fibonacciRecursive(9)); //the time complexity of this recursive function is 0(2^n)

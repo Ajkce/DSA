@@ -1,6 +1,7 @@
 let array = [1, 3, 5, 7, 8, 10, 11, 15, 18]
 
 function binarySearch(array, left, right, x){
+    debugger;
     let mid = parseInt((left + right) / 2)
     console.log(mid);
     if(array[mid] == x){
